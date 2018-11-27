@@ -184,11 +184,11 @@ function caweb_wp_enqueue_scripts() {
 
     // If on the activation page
     if ('wp-activate.php' == $pagenow) {
-        wp_enqueue_style('caweb-core-styles', sprintf('%1$s/css/version%2$s/cagov.core.css', CAWebUri, $ver), array(), CAWebVersion);
-        wp_enqueue_style('caweb-color-styles', sprintf('%1$s/css/version%2$s/colorscheme/%3$s.css', CAWebUri, $ver, $colorscheme), array(), CAWebVersion);
+        wp_enqueue_style('caweb-core-styles', sprintf('https://prod-cdn-static-cdt.azurewebsites.net/cdt/statetemplate/5.5.0/css/cagov.core.min.css', CAWebUri, $ver), array(), CAWebVersion);
+        wp_enqueue_style('caweb-color-styles', sprintf('https://prod-cdn-static-cdt.azurewebsites.net/cdt/statetemplate/5.5.0/css/colorscheme-%3$s.css', CAWebUri, $ver, $colorscheme), array(), CAWebVersion);
     } else {
-        wp_enqueue_style('caweb-core-style', sprintf('%1$s/css/version%2$s/cagov.core.css', CAWebUri, $ver), array(), CAWebVersion);
-        wp_enqueue_style('caweb-color-style', sprintf('%1$s/css/version%2$s/colorscheme/%3$s.css', CAWebUri, $ver, $colorscheme), array(), CAWebVersion);
+        wp_enqueue_style('caweb-core-style', sprintf('https://prod-cdn-static-cdt.azurewebsites.net/cdt/statetemplate/5.5.0/css/cagov.core.min.css', CAWebUri, $ver), array(), CAWebVersion);
+        wp_enqueue_style('caweb-color-style', sprintf('https://prod-cdn-static-cdt.azurewebsites.net/cdt/statetemplate/5.5.0/css/colorscheme-%3$s.css', CAWebUri, $ver, $colorscheme), array(), CAWebVersion);
         wp_enqueue_style('caweb-module-style', sprintf('%1$s/css/modules.css', CAWebUri), array(), CAWebVersion);
         wp_enqueue_style('caweb-font-style', sprintf('%1$s/css/cagov.font-only.css', CAWebUri), array(), CAWebVersion);
         wp_enqueue_style('caweb-custom-style', sprintf('%1$s/css/custom.css', CAWebUri), array(), CAWebVersion);
@@ -287,7 +287,7 @@ function caweb_wp_footer() {
 
 function caweb_late_wp_footer() {
     // Load Core JS at the very end along with any external/custom javascript/jquery
-    $core_js = sprintf('<script type="text/javascript" src="%1$s/js/cagov.core.js?ver=%2$s"></script>', CAWebUri, CAWebVersion);
+    $core_js = sprintf('<script type="text/javascript" src="https://prod-cdn-static-cdt.azurewebsites.net/cdt/statetemplate/5.5.0/js/cagov.core.min.js?ver=%2$s"></script>', CAWebUri, CAWebVersion);
 
     print $core_js;
 
